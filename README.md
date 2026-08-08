@@ -1,4 +1,5 @@
-# TryHackMe Writeup: OWASP Top 10 2025 Application Design Flaws
+# TryHackMe Writeup: OWASP Top 10 2025 Application Design Flaws by Samuel
+ID: CTC-116-26
 
 This is my writeup for the TryHackMe room **OWASP Top 10 2025: Application Design Flaws**.
 Room Link: [https://tryhackme.com/room/owasptopten2025two](https://tryhackme.com/room/owasptopten2025two)
@@ -52,7 +53,7 @@ In this task, I investigated a Data Processing Service API to find hidden debug 
    if data == 'debug':
        return jsonify(debug_info())
    ```
-   This justified why sending `"data": "debug"` in the JSON body would trigger the application to expose sensitive internal debug information.
+   The `"data": "debug"` in the JSON body would trigger the application to expose sensitive internal debug information.
 
    ![Source Code Provided in Task](Screenshots/AS03/Provided_task_file.png)
 
@@ -66,7 +67,7 @@ In this task, I investigated a Data Processing Service API to find hidden debug 
 
    ![Curl Request and Debug Response](Screenshots/AS03/Using_debug.png)
 
-5. I submitted the flag `THM{SUPPLY_CH41N_VULN3R4B1L1TY}` into TryHackMe and completed the task.
+5. Checked the flag `THM{SUPPLY_CH41N_VULN3R4B1L1TY}` into TryHackMe and completed the task.
 
    ![AS03 Task Complete](Screenshots/AS03/Screenshot%202026-08-08%20141530.png)
 
@@ -122,7 +123,7 @@ In this task, I analyzed a SecureChat application to discover unauthenticated en
 
    ![Burp Intruder Response Leaking Flag](Screenshots/AS05/flag.png)
 
-6. I copied the flag `THM{1NS3CUR3_D3S1GN_4SSUMP T10N}` and entered it into TryHackMe to complete the challenge.
+6. checked the flag `THM{1NS3CUR3_D3S1GN_4SSUMP T10N}` and it's correct.
 
    ![AS05 Task Complete](Screenshots/AS05/Screenshot%202026-08-08%20220015.png)
 
@@ -130,6 +131,9 @@ In this task, I analyzed a SecureChat application to discover unauthenticated en
 
 ## Lab Conclusion
 
-I completed all the practical tasks in this room. Through these exercises, I learned how security design failures like verbose error leaks, exposed debug modes, hardcoded crypto keys, and missing access controls on API endpoints can compromise application security.
+I completed all the practical tasks in this room. The last one was a bit tricky.
+I tried using Burp Suite to identify the unprotected routes, and it finally worked after testing my patience.
+I used 'wordlists' for the payload and added the words I expected to find. Finally, I got it. Trying Burp Suite was one of the lessons for me also I learned how security design failures like verbose error leaks,
+exposed debug modes, hardcoded crypto keys, and missing access controls on API endpoints can compromise application security.
 
 ![TryHackMe Conclusion](Screenshots/conclusion.png)
