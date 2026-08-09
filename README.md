@@ -118,7 +118,11 @@ In this task, I analyzed a SecureChat application to discover unauthenticated en
 
    ![Burp Intruder Setup](Screenshots/AS05/before_intruding.png)
 
-4. I ran an Intruder attack against the API path endpoints. When testing the payload `messages`, the request to `GET /api/messages/messages` returned an HTTP 200 OK status code.
+   I configured the payload position in Burp Intruder by adding the `§fuzz§` marker in the API path (`GET /api/§fuzz§/admin`).
+
+   ![Burp Intruder Payload Position](Screenshots/AS05/§fuzz§.png)
+
+4. I ran an Intruder attack against the API path endpoints. When testing the payload `messages`, the request to `GET /api/messages/admin` returned an HTTP 200 OK status code.
 5. In the HTTP response body, the API returned system messages containing the flag: `THM{1NS3CUR3_D3S1GN_4SSUMP T10N}`.
 
    ![Burp Intruder Response Leaking Flag](Screenshots/AS05/flag.png)
